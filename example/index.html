@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Event emitter example</title>
+        <script src="./js/event-emitter.min.js"></script>
+    </head>
+    <body>
+        <p>Open your console...</p>
+        <script>
+          (function() {
+            'strict'
+            var eventEmitter = new EventEmitter();
+            eventEmitter.on('start', function(str) {
+              console.log('>>> This is number 1 -', str);
+            });
+            eventEmitter.on('start', function(str) {
+              console.log('>>> This is number 2 -', str);
+            });
+            eventEmitter.on('start', function(str) {
+              console.log('>>> This is number 3 -', str);
+            });
+            setTimeout(function() {
+              eventEmitter.emit('start', 'yikes!');
+            }, 3000);
+            console.log('>>> After 3 seconds, 1 event will be triggered on multiple listeners...');
+          })();
+        </script>
+    </body>
+</html>
