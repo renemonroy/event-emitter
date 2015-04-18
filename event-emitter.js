@@ -7,7 +7,7 @@
 
   eventEmitter.prototype = {
 
-    constructor = eventEmitter,
+    constructor : eventEmitter,
 
     _events : null,
 
@@ -50,7 +50,7 @@
     },
 
     emit : function(type) {
-      var args, listenersList, listenerSize;
+      var args, listenersList, listenersSize;
       if ( !this._events ) this._events = {};
       if ( typeof this._events[type] === 'undefined' ) return false;
       args = Array.prototype.slice.call(arguments, 1);
@@ -62,8 +62,8 @@
       return this;
     }
 
-    global.EventEmitter = eventEmitter;
-
   };
+
+  global.EventEmitter = eventEmitter;
 
 })(window || this);
