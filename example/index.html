@@ -10,7 +10,7 @@
         <p>Open your console...</p>
         <script>
           (function() {
-            'strict'
+            'use strict';
             var eventEmitter = new EventEmitter();
             eventEmitter.on('start', function(str) {
               console.log('>>> This is number 1 -', str);
